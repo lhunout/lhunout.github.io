@@ -44,33 +44,58 @@ export default class Content extends Component {
                 {/* + Job subsection */}
                 <div className="subsection">
                   <h2>
-                    <span className="dot"></span>What do I{" "}
+                    <span className="dot"></span>What did I{" "}
                     <span className="word">do</span>?
                   </h2>
 
                   <div className="card">
                     <div className="card-body">
                       <div className="card-title">
-                        <h3>Eagle Jump Co. Ltd.</h3>
+                        <h3>Eviden, Atos</h3>
                         <h4>
                           <FontAwesomeIcon
                             icon={faBriefcase}
                             className="mr-2"
                           />{" "}
-                          Software Developer
+                          AI & Computer Vision Research Intern
                         </h4>
                         <h4>
                           <FontAwesomeIcon icon={faCalendar} className="mr-2" />{" "}
-                          Jun 2010 - Present
+                          Feb. 2023 ‑ Aug. 2023
                         </h4>
                       </div>
 
                       <div className="card-text">
-                        ◆ I work with Japan's biggest JRPG titles, Fairies
-                        Story. I oversee the software development involving the
-                        characters in the game.
-                        <br />◆ I also lead the testers of the game in its alpha
-                        and beta releases.
+                        • Big Data & Security division, European project PREVENT PCP
+                        <br />• Detection of abandoned luggage in video streams to improve
+                        station safety and limit false alerts to abandoned baggage.
+                        <br />• Implementation of score‑based object/owner association
+                        algorithms.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>MBDA, Airbus</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faBriefcase}
+                            className="mr-2"
+                          />{" "}
+                          Embedded AI Intern
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon icon={faCalendar} className="mr-2" />{" "}
+                          Apr. 2022 ‑ Sep. 2022
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        • Implementation of communication protocols, creation of an
+                        embedded Linux image on a Xilinx Zynq card, setting up a Vitis
+                        AI Docker environment, development of an image
+                        classification model.
                       </div>
                     </div>
                   </div>
@@ -85,7 +110,7 @@ export default class Content extends Component {
                   </h2>
                   <div className="row">
                     {data.allLanguagesJson.edges.map(({ node }, index) => (
-                      <div className="col-lg-4 col-md-6" key={index}>
+                      <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
                         <div className="card">
                           <div className="card-text">
                             <div className="card-item">
@@ -113,28 +138,82 @@ export default class Content extends Component {
                   <div className="card">
                     <div className="card-body">
                       <div className="card-title">
-                        <h3>Tokyo Institute of Technology</h3>
+                        <h3>INSA Centre Val de Loire</h3>
                         <h4>
                           <FontAwesomeIcon
                             icon={faGraduationCap}
                             className="mr-2"
                           />
-                          Computer Science
+                          MEng in Industrial Systems
                         </h4>
                         <h4>
                           <FontAwesomeIcon
                             icon={faUserGraduate}
                             className="mr-2"
                           />{" "}
-                          Jan 2010
+                          Sep. 2018 ‑ Current
                         </h4>
                       </div>
 
                       <div className="card-text">
-                        I earned my Bachelor's Degree in Computer Science in
-                        Tokyo Institute of Technology. For my undergraduate
-                        thesis, I wrote this model motion development through
-                        convolutional neural networks.
+                        • GPA: 4.0
+                        <br />• Courses: statistical theory and methods, machine learning,
+                        computer vision, complex systems engineering, risk
+                        management
+                        <br />• Student representative, active participation in various events
+                        (student council campaign, open days, etc.)
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>University of Tours</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          MRes in Electronics, Electrical Energy & Automatic Control (E3A)
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Sep. 2022 ‑ Current
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        • Courses: cyber‑physical system, multiphysics modelling
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>TalTech</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          School of Information Technologies (Erasmus+ exchange)
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Sep. 2021 ‑ Jan. 2022
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        • GPA: 3.7
+                        <br />• Courses: data mining, machine learning, system
+                        programming, embedded systems
                       </div>
                     </div>
                   </div>

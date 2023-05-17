@@ -12,7 +12,7 @@ const AboutPage = () => (
         {/* + Title */}
         <div className="row mt-4 justify-content-center">
           <div className="col-lg-7 col-sm-12 my-auto headline">
-            <h1>My mini autobiography~</h1>
+            <h1>My mini autobiography</h1>
           </div>
         </div>
         {/* - Title */}
@@ -33,10 +33,9 @@ const AboutPage = () => (
                 </div>
 
                 <div className="card-text">
-                  Cupcake ipsum dolor sit amet sweet roll ice cream cheesecake
-                  chocolate. Lemon drops gummi bears biscuit. Pie gingerbread
-                  tart tootsie roll donut cheesecake. Muffin pie gingerbread
-                  dragée pudding tart tootsie roll.
+                  <p>I am passionate about data science, machine learning with over two years of experience specializing in Python development and algorithms.</p>
+                  <p>I adapt quickly and I have an ease to collaborate. Motivated and persevering, I like to work on different projects to develop my skills.</p>
+                  <p>Mainly looking for Machine Learning/Data Scientist positions. I am ready to meet the future challenges that will come my way.</p>
                 </div>
               </div>
             </div>
@@ -44,17 +43,17 @@ const AboutPage = () => (
           {/* - Card */}
 
           {/* + Image */}
-          <div className="col-lg-6 my-auto mx-auto">
+          {/* <div className="col-lg-6 my-auto mx-auto">
             <Image
-              fileName="about.jpg"
+              fileName="photo.jpg"
               alt="About page"
               className="about-img-wrapper"
             />
-          </div>
+          </div> */}
           {/* - Image */}
 
           {/* + Card */}
-          <div className="col-lg-7 my-auto">
+          {/* <div className="col-lg-7 my-auto">
             <div className="card shadow-sm">
               <div className="card-body">
                 <div className="card-title">
@@ -72,7 +71,7 @@ const AboutPage = () => (
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* - Card */}
         </div>
       </div>

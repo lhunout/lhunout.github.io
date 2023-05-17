@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `SiteName`,
+    title: `LH`,
     description: `A minimalistic resume style Gatsby portfolio.`,
     author: `@gmlunesa`,
   },
@@ -31,7 +31,7 @@ module.exports = {
         background_color: `#1b1c1e`,
         theme_color: `#1b1c1e`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/photo.jpg`, // This path is relative to the root of the site.
       },
     },
     `gatsby-transformer-json`,

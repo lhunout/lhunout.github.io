@@ -1,47 +1,80 @@
 [
   {
-    "language": "C"
-  },
-  {
-    "language": "C++"
-  },
-  {
-    "language": "C#"
-  },
-  {
-    "language": "HTML"
-  },
-  {
-    "language": "Java"
-  },
-  {
-    "language": "Javascript"
-  },
-  {
     "language": "Python"
   },
   {
-    "language": "Node"
+    "language": "R"
   },
   {
-    "language": "React"
+    "language": "MATLAB (Simulink)"
   },
   {
-    "language": "GatsbyJS"
+    "language": "SQL"
   },
   {
-    "language": "Machine Learning"
+    "language": "Keras"
   },
   {
-    "language": "Artificial Intelligence"
+    "language": "Tensorflow"
   },
   {
-    "language": "Robotic Process Automation"
+    "language": "PyTorch"
   },
   {
-    "language": "Web Development"
+    "language": "OpenCV"
   },
   {
-    "language": "Agile Workflow"
+    "language": "Pandas"
+  },
+  {
+    "language": "NumPy"
+  },
+  {
+    "language": "Scikit‑learn"
+  },
+  {
+    "language": "Matplolib"
+  },
+  {
+    "language": "ggplot2"
+  },
+  {
+    "language": "Shell"
+  },
+  {
+    "language": "Windows"
+  },
+  {
+    "language": "Linux"
+  },
+  {
+    "language": "Linux Tools"
+  },
+  {
+    "language": "CUDA"
+  },
+  {
+    "language": "Docker"
+  },
+  {
+    "language": "Slurm"
+  },
+  {
+    "language": "LaTeX"
+  },
+  {
+    "language": "Markdown"
+  },
+  {
+    "language": "Microsoft Office"
+  },
+  {
+    "language": "Jupyter"
+  },
+  {
+    "language": "Git"
+  },
+  {
+    "language": "Jira (Agile/Scrum)"
   }
 ]

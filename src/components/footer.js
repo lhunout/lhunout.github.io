@@ -47,7 +47,7 @@ export default class Footer extends Component {
                     </li>
                     <li className="list-inline-item mr-4">
                       <a
-                        href="mailto:emailName@gmail.com"
+                        href="mailto:lilian.hunout@outlook.com"
                         target="_blank"
                         rel="noreferrer"
                         alt="email link"
@@ -57,7 +57,7 @@ export default class Footer extends Component {
                     </li>
                     <li className="list-inline-item mr-4">
                       <a
-                        href="https://github.com/githubName"
+                        href="https://github.com/lhunout"
                         target="_blank"
                         rel="noreferrer"
                         alt="github link"
@@ -67,7 +67,7 @@ export default class Footer extends Component {
                     </li>
                     <li className="list-inline-item mr-4">
                       <a
-                        href="https://linkedin.com/linkedInName"
+                        href="https://www.linkedin.com/in/lilian-hunout/"
                         target="_blank"
                         rel="noreferrer"
                         alt="linkedin link"
@@ -75,7 +75,7 @@ export default class Footer extends Component {
                         <FontAwesomeIcon icon={faLinkedin} />
                       </a>
                     </li>
-                    <li className="list-inline-item">
+                    {/* <li className="list-inline-item">
                       <a
                         href="https://twitter.com/twitterName"
                         target="_blank"
@@ -84,7 +84,7 @@ export default class Footer extends Component {
                       >
                         <FontAwesomeIcon icon={faTwitter} />
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
