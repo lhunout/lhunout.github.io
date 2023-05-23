@@ -102,32 +102,6 @@ export default class Content extends Component {
                 </div>
                 {/* - Job subsection */}
 
-                {/* + Technologies subsection */}
-                <div className="subsection">
-                  <h2 className="mt-5">
-                    <span className="dot"></span>What do I{" "}
-                    <span className="word">know</span>?
-                  </h2>
-                  <div className="row">
-                    {data.allLanguagesJson.edges.map(({ node }, index) => (
-                      <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
-                        <div className="card">
-                          <div className="card-text">
-                            <div className="card-item">
-                              <FontAwesomeIcon
-                                icon={faTerminal}
-                                className="mr-2 item-icon"
-                              />{" "}
-                              {node.language}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {/* - Technologies subsection */}
-
                 {/* + School subsection */}
                 <div className="subsection">
                   <h2 className="mt-5">
@@ -220,8 +194,34 @@ export default class Content extends Component {
                 </div>
                 {/* - School subsection */}
 
-                {/* + Projects subsection */}
+                {/* + Technologies subsection */}
                 <div className="subsection">
+                  <h2 className="mt-5">
+                    <span className="dot"></span>What do I{" "}
+                    <span className="word">know</span>?
+                  </h2>
+                  <div className="row">
+                    {data.allLanguagesJson.edges.map(({ node }, index) => (
+                      <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
+                        <div className="card">
+                          <div className="card-text">
+                            <div className="card-item">
+                              <FontAwesomeIcon
+                                icon={faTerminal}
+                                className="mr-2 item-icon"
+                              />{" "}
+                              {node.language}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* - Technologies subsection */}
+
+                {/* + Projects subsection */}
+                {/* <div className="subsection">
                   <h2 className="mt-5">
                     <span className="dot"></span>What have I{" "}
                     <span className="word">experimented with</span>?
@@ -257,7 +257,7 @@ export default class Content extends Component {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* - Projects subsection */}
             </section>

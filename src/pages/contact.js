@@ -19,23 +19,7 @@ const ContactPage = () => (
               available at the following social media outlets:
             </p>
             <Links />
-            {/* <p>
-              I am currently available for freelance work. My scope of work
-              includes but not limited to:
-            </p>
-            <ul>
-              <li>Website Development</li>
-              <li>User Interface (UI) Design</li>
-              <li>Logo Creation</li>
-              <li>Website Scraping Automation</li>
-              <li>Quality Assurance Testing</li>
-            </ul> */}
-
-            <a
-              href="../files/MagicalCV.pdf"
-              className="main-button btn btn-primary shadow-sm mt-2"
-              download
-            >
+            <a href="/HUNOUT_resume.pdf" className="main-button btn btn-primary shadow-sm mt-2" download>
               Download my resume
             </a>
           </div>
