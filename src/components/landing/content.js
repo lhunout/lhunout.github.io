@@ -223,8 +223,8 @@ export default class Content extends Component {
                 {/* + School subsection */}
                 <div className="subsection">
                   <h2 className="mt-5">
-                    <span className="dot"></span>What did I{" "}
-                    <span className="word">study</span>?
+                    <span className="dot"></span>What have I{" "}
+                    <span className="word">experimented with</span>?
                   </h2>
 
                   <div className="card">
