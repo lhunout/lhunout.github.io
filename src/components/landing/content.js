@@ -220,6 +220,70 @@ export default class Content extends Component {
                 </div>
                 {/* - Technologies subsection */}
 
+                {/* + School subsection */}
+                <div className="subsection">
+                  <h2 className="mt-5">
+                    <span className="dot"></span>What did I{" "}
+                    <span className="word">study</span>?
+                  </h2>
+
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>PRISME Laboratory</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          Research project for medical applications
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                           Feb. 2022 ‑ Apr. 2022 
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        • Detection and tracking of micro‑scale magnetic robots on an
+                        ultrasound dataset.
+                        <br />• Keywords: YOLOv5, ECO tracker
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>TalTech Embedded AI Research Lab</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          End of semester project
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Nov. 2021 ‑ Jan. 2022 
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        • Garage door cycle detection model from accelerometric
+                        dataset on an STM32 board with X‑CUBE‑AI.
+                        <br />• First prize 250€
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* - School subsection */}
+
                 {/* + Projects subsection */}
                 {/* <div className="subsection">
                   <h2 className="mt-5">
@@ -258,8 +322,8 @@ export default class Content extends Component {
                     ))}
                   </div>
                 </div> */}
+                {/* - Projects subsection */}
               </div>
-              {/* - Projects subsection */}
             </section>
           </>
         )}
