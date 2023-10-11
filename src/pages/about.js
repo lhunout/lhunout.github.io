@@ -33,9 +33,9 @@ const AboutPage = () => (
                 </div>
 
                 <div className="card-text">
-                  <p>I am passionate about data science, machine learning with over two years of experience specializing in Python development and algorithms.</p>
-                  <p>I adapt quickly and I have an ease to collaborate. Motivated and persevering, I like to work on different projects to develop my skills.</p>
-                  <p>Mainly looking for Machine Learning/Data Scientist positions. I am ready to meet the future challenges that will come my way.</p>
+                  <p>Originally from Normandy, I recently began a new chapter in my life in the Parisian region, after studying for five years in the Centre region of France. As part of this exciting journey, I am pursuing a Master's degree in Mathematics, Vision, Learning (MVA), a program renowned for its excellence in artificial intelligence.</p>
+                  <p>I am passionate about data science and machine learning, with over two years of experience specializing in Python development and algorithms. I adapt quickly and have a strong aptitude for collaboration. Motivated and persevering, I enjoy working on diverse projects to further develop my skills. </p>
+                  <p>I am actively seeking a research intern position, preferably within a private laboratory in a tech company or startup. However, I am also open to opportunities with academic laboratories. I am ready to embrace the future challenges that come my way.</p>
                 </div>
               </div>
             </div>

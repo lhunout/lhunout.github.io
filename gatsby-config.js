@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `LH`,
+    title: `LHunout`,
     description: `A minimalistic resume style Gatsby portfolio.`,
     author: `@gmlunesa`,
   },
@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `SiteName`,
-        short_name: `SiteName`,
+        name: `LH`,
+        short_name: `LH`,
         start_url: `/`,
         background_color: `#1b1c1e`,
         theme_color: `#1b1c1e`,

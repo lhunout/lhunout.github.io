@@ -19,9 +19,9 @@ export default function Hero() {
                 </span>
               </h1>
               <h1>Hi. I'm Lilian</h1>
-              <p>
+              {/* <p>
                 I work as an AI & Computer Vision Research Intern at Atos.
-              </p>
+              </p> */}
               <Link
                 to="content"
                 className="main-button btn btn-primary shadow-sm"
@@ -55,11 +55,11 @@ export default function Hero() {
                     >
                       📍
                     </span>
-                    Grenoble
+                    Paris
                     <br />
                   </h4>
                   <p className="card-text">
-                    full-time machine learning engineer
+                    MVA @ ENS Paris-Saclay
                     {/* <br /> */}
                     {/* airsoft enthusiast */}
                   </p>

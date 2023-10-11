@@ -41,6 +41,135 @@ export default class Content extends Component {
           <>
             <section className="content" id="content">
               <div className="container">
+                {/* + School subsection */}
+                <div className="subsection">
+                  <h2 className="mt-5">
+                    <span className="dot"></span>What did I{" "}
+                    <span className="word">study</span>?
+                  </h2>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>ENS Paris-Saclay</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          <a href="https://www.master-mva.com/">MSc in Mathematics, Vision, Learning (MVA)</a>
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Sep. 2023 ‑ Current
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        <ul>
+                          <li>World’s leading university in mathematics (<a href="https://www.shanghairanking.com/institution/paris-saclay-university">ARWU</a>)</li>
+                          <li><strong>Courses (1<sup>st</sup> semester):</strong></li>
+                          <ul>
+                            <li>Advanced learning for text and graph data (M.VAZIRGIANNIS)</li>
+                            <li>Convex optimization and applications in machine learning (A. D’ASPREMONT)</li>
+                            <li>Geometric data analysis (J. FEYDY)</li>
+                            <li>Introduction to probabilistic graphical models and deep generative models (P. LATOUCHE, P.A. MATTEI)</li>
+                            <li>Learning for time series (L. OUDRE)</li>
+                            <li>Object recognition and computer vision (G. VAROL, I. LAPTEV, J. PONCE)</li>
+                          </ul>
+                          <li><strong>Courses (2<sup>nd</sup> semester):</strong> to be coming...</li>
+                          <li>Student representative</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>INSA Centre Val de Loire</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          <a href="https://www.insa-centrevaldeloire.fr/fr/formation/maitrise-des-risques-industriels">MEng in Industrial Systems</a>
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Sep. 2018 ‑ Sep. 2023
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        <ul>
+                            <li><strong>Courses:</strong> statistical theory and methods, machine learning, computer vision, complex systems engineering, risk management (GPA: 4.0)</li>
+                            <li>Student representative, active participation in various events (student council campaign, open days, etc.)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>University of Tours</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          <a href="https://dept.phys.univ-tours.fr/formation/master-physique-appliquee-electronique-energie-electrique-automatique.html">MSc in Fundamental Physics and Applications</a>
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Sep. 2022 ‑ Sep. 2023
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        <ul>
+                          <li><strong>Courses:</strong> automatics, robotics, cyber‑physical system, multiphysics modelling</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        <h3>TalTech</h3>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faGraduationCap}
+                            className="mr-2"
+                          />
+                          <a href="https://taltech.ee/en/school-of-information-technologies">School of Information Technologies (Erasmus+ exchange)</a>
+                        </h4>
+                        <h4>
+                          <FontAwesomeIcon
+                            icon={faUserGraduate}
+                            className="mr-2"
+                          />{" "}
+                          Sep. 2021 ‑ Jan. 2022
+                        </h4>
+                      </div>
+
+                      <div className="card-text">
+                        <ul>
+                          <li><strong>Courses:</strong> data mining, machine learning, system programming, embedded systems (GPA: 3.7)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* - School subsection */}
+
                 {/* + Job subsection */}
                 <div className="subsection">
                   <h2>
@@ -51,7 +180,7 @@ export default class Content extends Component {
                   <div className="card">
                     <div className="card-body">
                       <div className="card-title">
-                        <h3>Eviden, Atos</h3>
+                        <h3>Eviden</h3>
                         <h4>
                           <FontAwesomeIcon
                             icon={faBriefcase}
@@ -66,18 +195,18 @@ export default class Content extends Component {
                       </div>
 
                       <div className="card-text">
-                        • Big Data & Security division, European project PREVENT PCP
-                        <br />• Detection of abandoned luggage in video streams to improve
-                        station safety and limit false alerts to abandoned baggage.
-                        <br />• Implementation of score‑based object/owner association
-                        algorithms.
+                        <ul>
+                          <li>Big Data & Security division, European project <a href="https://prevent-pcp.eu/">PREVENT PCP</a></li>
+                          <li>Detection of abandoned luggage in video streams to improve station safety and limit false alerts. <strong>Keywords:</strong> object detection, tracking, pose estimation, re‑identification</li>
+                          <li>Implementation of score‑based object/owner association algorithms.</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                   <div className="card">
                     <div className="card-body">
                       <div className="card-title">
-                        <h3>MBDA, Airbus</h3>
+                        <h3>MBDA</h3>
                         <h4>
                           <FontAwesomeIcon
                             icon={faBriefcase}
@@ -92,107 +221,17 @@ export default class Content extends Component {
                       </div>
 
                       <div className="card-text">
-                        • Implementation of communication protocols, creation of an
+                        <ul>
+                          <li>Implementation of communication protocols, creation of an
                         embedded Linux image on a Xilinx Zynq card, setting up a Vitis
                         AI Docker environment, development of an image
-                        classification model.
+                        classification model.</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
                 {/* - Job subsection */}
-
-                {/* + School subsection */}
-                <div className="subsection">
-                  <h2 className="mt-5">
-                    <span className="dot"></span>What did I{" "}
-                    <span className="word">study</span>?
-                  </h2>
-
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="card-title">
-                        <h3>INSA Centre Val de Loire</h3>
-                        <h4>
-                          <FontAwesomeIcon
-                            icon={faGraduationCap}
-                            className="mr-2"
-                          />
-                          MEng in Industrial Systems
-                        </h4>
-                        <h4>
-                          <FontAwesomeIcon
-                            icon={faUserGraduate}
-                            className="mr-2"
-                          />{" "}
-                          Sep. 2018 ‑ Current
-                        </h4>
-                      </div>
-
-                      <div className="card-text">
-                        • GPA: 4.0
-                        <br />• Courses: statistical theory and methods, machine learning,
-                        computer vision, complex systems engineering, risk
-                        management
-                        <br />• Student representative, active participation in various events
-                        (student council campaign, open days, etc.)
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="card-title">
-                        <h3>University of Tours</h3>
-                        <h4>
-                          <FontAwesomeIcon
-                            icon={faGraduationCap}
-                            className="mr-2"
-                          />
-                          MRes in Electronics, Electrical Energy & Automatic Control (E3A)
-                        </h4>
-                        <h4>
-                          <FontAwesomeIcon
-                            icon={faUserGraduate}
-                            className="mr-2"
-                          />{" "}
-                          Sep. 2022 ‑ Current
-                        </h4>
-                      </div>
-
-                      <div className="card-text">
-                        • Courses: cyber‑physical system, multiphysics modelling
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="card-title">
-                        <h3>TalTech</h3>
-                        <h4>
-                          <FontAwesomeIcon
-                            icon={faGraduationCap}
-                            className="mr-2"
-                          />
-                          School of Information Technologies (Erasmus+ exchange)
-                        </h4>
-                        <h4>
-                          <FontAwesomeIcon
-                            icon={faUserGraduate}
-                            className="mr-2"
-                          />{" "}
-                          Sep. 2021 ‑ Jan. 2022
-                        </h4>
-                      </div>
-
-                      <div className="card-text">
-                        • GPA: 3.7
-                        <br />• Courses: data mining, machine learning, system
-                        programming, embedded systems
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* - School subsection */}
 
                 {/* + Technologies subsection */}
                 <div className="subsection">
@@ -248,9 +287,9 @@ export default class Content extends Component {
                       </div>
 
                       <div className="card-text">
-                        • Detection and tracking of micro‑scale magnetic robots on an
-                        ultrasound dataset.
-                        <br />• Keywords: YOLOv5, ECO tracker
+                        <ul>
+                          <li>Detection and tracking of micro‑scale magnetic robots on an ultrasound dataset. <strong>Keywords:</strong> YOLOv5, ECO tracker</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -275,9 +314,9 @@ export default class Content extends Component {
                       </div>
 
                       <div className="card-text">
-                        • Garage door cycle detection model from accelerometric
-                        dataset on an STM32 board with X‑CUBE‑AI.
-                        <br />• First prize 250€
+                        <ul>
+                          <li>Garage door cycle detection model from accelerometric dataset on an STM32 board with X‑CUBE‑AI. <strong>First prize 250€</strong></li>
+                        </ul>
                       </div>
                     </div>
                   </div>

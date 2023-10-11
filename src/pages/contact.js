@@ -12,7 +12,7 @@ const ContactPage = () => (
       <div className="container">
         <div className="row mt-4">
           <div className="col-md-8">
-            <h1>Contact Details</h1>
+            <h1>Contact details</h1>
             <p>
               Hi! How are you? Thank you for visiting my site. If you have any
               inquiries or feedback, please don't hesitate to reach out. I am
