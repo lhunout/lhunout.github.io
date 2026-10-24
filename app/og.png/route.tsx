@@ -47,7 +47,7 @@ export async function GET() {
           color: MUTED,
         }}
       >
-        <div style={{ width: 14, height: 14, borderRadius: 7, backgroundColor: '#788c5d' }} />
+        <div style={{ width: 14, height: 14, borderRadius: 7, backgroundColor: '#22a559' }} />
         {personalInfo.location.toUpperCase()} ·
         <span style={{ color: CLAY }}>{personalInfo.availability.toUpperCase()}</span>
       </div>
