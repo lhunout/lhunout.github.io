@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Archivo, DM_Sans, Literata, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import ChatBot from '@/components/ChatBot'
@@ -9,10 +9,8 @@ import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import SmoothScroll from '@/components/SmoothScroll'
 import { personalInfo } from '@/data/cv-data'
+import { ICON, SHARE_IMAGE, SITE_URL } from '@/lib/site'
 import { THEME_SCRIPT } from '@/lib/theme-script'
-
-const SITE_URL = 'https://lhunout.github.io'
-const SHARE_IMAGE = '/photo.jpg'
 
 // Free stand-ins for anthropic.com's proprietary fonts: Literata for display,
 // DM Sans for body text, Geist Mono for labels. Archivo is only for the hero name.
@@ -26,7 +24,7 @@ const shareTitle = `${personalInfo.name} - ${personalInfo.title}`
 export const metadata: Metadata = {
   // Without it, relative OG/Twitter images resolve against localhost.
   metadataBase: new URL(SITE_URL),
-  title: `${personalInfo.name} - Portfolio`,
+  title: shareTitle,
   description: personalInfo.description,
   keywords: [
     'Machine Learning Engineer',
@@ -38,6 +36,7 @@ export const metadata: Metadata = {
     'Portfolio',
   ],
   authors: [{ name: personalInfo.name }],
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -45,15 +44,23 @@ export const metadata: Metadata = {
     title: shareTitle,
     description: personalInfo.description,
     siteName: `${personalInfo.name} Portfolio`,
-    images: [{ url: SHARE_IMAGE, width: 1200, height: 630, alt: personalInfo.name }],
+    images: [{ ...SHARE_IMAGE, alt: shareTitle }],
   },
   twitter: {
     card: 'summary_large_image',
     title: shareTitle,
     description: personalInfo.description,
-    images: [SHARE_IMAGE],
+    images: [{ url: SHARE_IMAGE.url, alt: shareTitle }],
   },
-  icons: { icon: SHARE_IMAGE, apple: SHARE_IMAGE },
+  icons: { icon: { url: ICON.url, type: 'image/png' }, apple: ICON.url },
+}
+
+// Browser UI on mobile and Discord embed accent; values mirror --color-background.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#faf9f5' },
+    { media: '(prefers-color-scheme: dark)', color: '#1f1e1d' },
+  ],
 }
 
 const personSchema = {

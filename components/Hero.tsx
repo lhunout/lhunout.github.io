@@ -43,7 +43,7 @@ const letter: Variants = {
 
 function AnimatedWord({ text }: { text: string }) {
   return (
-    <motion.span variants={letters} className="block">
+    <motion.span variants={letters} aria-hidden className="block">
       {text.split('').map((char, i) => (
         <motion.span key={`${char}-${i}`} variants={letter} className="inline-block">
           {char}
@@ -139,9 +139,11 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="mt-6 hero-name">
-            <AnimatedWord text="Lilian" />
-            <AnimatedWord text="Hunout" />
+          {/* Letters are split for the animation; the label keeps the name readable as one word. */}
+          <h1 aria-label={personalInfo.name} className="mt-6 hero-name">
+            {personalInfo.name.split(' ').map((word) => (
+              <AnimatedWord key={word} text={word} />
+            ))}
           </h1>
 
           <motion.p variants={rise} className="mt-8 text-xl text-foreground md:text-2xl">
