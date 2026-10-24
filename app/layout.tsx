@@ -8,7 +8,7 @@ import CvPreviewProvider from '@/components/CvPreview'
 import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import SmoothScroll from '@/components/SmoothScroll'
-import { personalInfo } from '@/data/cv-data'
+import { personalInfo, workExperience } from '@/data/cv-data'
 import { ICON, SHARE_IMAGE, SITE_URL } from '@/lib/site'
 import { THEME_SCRIPT } from '@/lib/theme-script'
 
@@ -26,15 +26,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: shareTitle,
   description: personalInfo.description,
-  keywords: [
-    'Machine Learning Engineer',
-    'Recommendation Systems',
-    'Deep Learning',
-    'PyTorch',
-    'Criteo',
-    'ENS Paris-Saclay',
-    'Portfolio',
-  ],
   authors: [{ name: personalInfo.name }],
   alternates: { canonical: '/' },
   openGraph: {
@@ -67,14 +58,14 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: personalInfo.name,
-  jobTitle: personalInfo.title,
+  jobTitle: workExperience[0].positions[0].title,
   description: personalInfo.description,
   email: personalInfo.email,
   address: { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'France' },
   url: SITE_URL,
   sameAs: [personalInfo.github, personalInfo.linkedin],
-  knowsAbout: ['Machine Learning', 'Recommendation Systems', 'Deep Learning', 'PyTorch'],
-  worksFor: { '@type': 'Organization', name: 'Criteo' },
+  knowsAbout: personalInfo.expertise,
+  worksFor: { '@type': 'Organization', name: workExperience[0].company },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

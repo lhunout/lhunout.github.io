@@ -10,6 +10,17 @@ export const personalInfo = {
   headline: 'building RecSys',
   tagline: 'just an engineer who likes agents, fast code and GPUs going brrr',
   availability: 'Open to chat',
+  // Search engines only (structured data), not shown on the page.
+  expertise: [
+    'Machine Learning',
+    'Recommender Systems',
+    'Personalization',
+    'Deep Learning',
+    'Large-Scale Machine Learning',
+    'A/B Testing',
+    'Online Advertising',
+    'AI Agents',
+  ],
   email: 'lilian.hunout@outlook.com',
   location: 'Paris, France',
   github: 'https://github.com/lhunout',
