@@ -48,6 +48,9 @@ export const metadata: Metadata = {
 
 // Browser UI on mobile and Discord embed accent; values mirror --color-background.
 export const viewport: Viewport = {
+  // Android Chrome shrinks the layout when the keyboard opens, so the full-screen
+  // chat stays above it instead of being pushed up. iOS ignores it (see ChatBot).
+  interactiveWidget: 'resizes-content',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#faf9f5' },
     { media: '(prefers-color-scheme: dark)', color: '#1f1e1d' },

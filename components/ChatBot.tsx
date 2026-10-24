@@ -1,6 +1,14 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type CSSProperties,
+  type ReactNode,
+} from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowUp, MessageCircle, RotateCcw, Square, X } from 'lucide-react'
 import { chatbotPrompt } from '@/data/cv-data'
@@ -55,9 +63,12 @@ export default function ChatBot() {
     return () => window.removeEventListener('chat:open', onOpen)
   }, [])
 
+  // On touch screens, focusing would pop the keyboard over the suggestions.
   useEffect(() => {
-    if (open) inputRef.current?.focus()
+    if (open && matchMedia('(pointer: fine)').matches) inputRef.current?.focus()
   }, [open])
+
+  const mobileBox = useMobileViewportBox(open)
 
   useEffect(() => {
     const el = scrollRef.current
@@ -174,6 +185,7 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            style={mobileBox}
             className="fixed inset-3 z-[60] flex origin-bottom-right flex-col overflow-hidden rounded-2xl border border-muted bg-background shadow-panel sm:inset-auto sm:right-6 sm:bottom-6 sm:h-[min(640px,calc(100dvh-7.5rem))] sm:w-[400px]"
           >
             <header className="flex items-center justify-between gap-3 border-b border-muted px-4 py-3">
@@ -305,7 +317,7 @@ export default function ChatBot() {
                   onKeyDown={onKeyDown}
                   placeholder="Ask anything…"
                   aria-label="Message"
-                  className="max-h-32 flex-1 resize-none bg-transparent py-1 text-ui leading-6 outline-none placeholder:text-muted-foreground/70"
+                  className="max-h-32 flex-1 resize-none bg-transparent py-1 text-base leading-6 outline-none placeholder:text-muted-foreground/70 sm:text-ui"
                 />
                 {busy ? (
                   <button
@@ -336,6 +348,36 @@ export default function ChatBot() {
       </AnimatePresence>
     </>
   )
+}
+
+/** Matches the panel's `inset-3`. */
+const MOBILE_INSET = 12
+
+function subscribeViewport(onChange: () => void) {
+  const vv = window.visualViewport
+  vv?.addEventListener('resize', onChange)
+  vv?.addEventListener('scroll', onChange)
+  return () => {
+    vv?.removeEventListener('resize', onChange)
+    vv?.removeEventListener('scroll', onChange)
+  }
+}
+
+const viewportSnapshot = () => {
+  const vv = window.visualViewport
+  if (!vv || !matchMedia('(max-width: 639px)').matches) return ''
+  return `${vv.offsetTop}:${vv.height}`
+}
+
+/**
+ * Phones only: pins the full-screen panel to the visible viewport, which
+ * shrinks when the keyboard opens (iOS doesn't resize the layout for it).
+ */
+function useMobileViewportBox(active: boolean): CSSProperties | undefined {
+  const snapshot = useSyncExternalStore(subscribeViewport, viewportSnapshot, () => '')
+  if (!active || !snapshot) return undefined
+  const [offsetTop, height] = snapshot.split(':').map(Number)
+  return { top: offsetTop + MOBILE_INSET, height: height - 2 * MOBILE_INSET, bottom: 'auto' }
 }
 
 function IconButton({
