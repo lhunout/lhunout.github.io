@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero'
-import MlWorkflow from '@/components/MlWorkflow'
+import MlWorkflow from '@/components/ml-workflow/MlWorkflow'
 import WorkExperience from '@/components/WorkExperience'
 import Education from '@/components/Education'
 
