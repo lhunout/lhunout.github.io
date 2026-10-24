@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { education, type EducationEntry } from '@/data/cv-data'
 import {
   Achievements,
+  LogoTile,
   SectionHeading,
   Timeline,
   TimelineCard,
@@ -20,11 +21,16 @@ function countInstitutions(entries: EducationEntry[]): number {
 function NestedProgramme({ entry }: { entry: EducationEntry }) {
   return (
     <TimelineItem year={startYear(entry.period)} nested>
-      <h5 className="display-md text-lg">{entry.school}</h5>
-      <p className="mt-0.5 text-sm text-foreground/90">{entry.degree}</p>
-      <p className="mt-1.5 mb-3 data-label">
-        {entry.period} · {entry.location}
-      </p>
+      <div className="mb-3 flex items-center gap-4">
+        {entry.logo && <LogoTile src={entry.logo} alt={`${entry.school} logo`} size="sm" />}
+        <div className="min-w-0">
+          <h5 className="display-md text-lg">{entry.school}</h5>
+          <p className="mt-0.5 text-sm text-foreground/90">{entry.degree}</p>
+          <p className="mt-1.5 data-label">
+            {entry.period} · {entry.location}
+          </p>
+        </div>
+      </div>
       <Achievements items={entry.description} />
     </TimelineItem>
   )

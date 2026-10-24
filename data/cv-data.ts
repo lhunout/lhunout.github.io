@@ -45,7 +45,7 @@ export const workflow = {
 export const workExperience = [
   {
     company: 'Criteo',
-    logo: '/logos/criteo.png',
+    logo: '/logos/criteo.svg',
     location: 'Paris, France',
     totalPeriod: 'Apr. 2024 - Current',
     positions: [
@@ -113,7 +113,7 @@ export const education: EducationEntry[] = [
   {
     degree: 'MEng in Industrial Systems',
     school: 'INSA Centre Val de Loire',
-    logo: '/logos/insa.png',
+    logo: '/logos/insa.svg',
     location: 'Bourges, France',
     period: 'Sep. 2018 - Sep. 2023',
     description: [
@@ -124,7 +124,7 @@ export const education: EducationEntry[] = [
       {
         degree: 'MSc in Applied Physics (Double Degree)',
         school: 'University of Tours',
-        logo: '/logos/uni_tours.png',
+        logo: '/logos/uni_tours.svg',
         location: 'Tours, France',
         period: 'Sep. 2022 - Sep. 2023',
         description: [
@@ -134,7 +134,7 @@ export const education: EducationEntry[] = [
       {
         degree: 'School of Information Technologies (Erasmus)',
         school: 'Tallinn University of Technology',
-        logo: '/logos/taltech.png',
+        logo: '/logos/taltech.svg',
         location: 'Tallinn, Estonia',
         period: 'Sep. 2021 - Jan. 2022',
         description: [

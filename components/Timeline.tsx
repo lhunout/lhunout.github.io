@@ -2,7 +2,7 @@
 
 import { useRef, type ReactNode } from 'react'
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { LOGO_BOX_HEIGHT, LOGO_BOX_WIDTH, logoSize } from '@/lib/logos'
+import { LOGO_TILES, logoSize, type LogoTileSize } from '@/lib/logos'
 import { SPRING_SMOOTH, SPRING_SNAPPY } from '@/lib/motion-presets'
 
 /**
@@ -197,25 +197,8 @@ export function TimelineCard({
       className="group relative rounded-lg card-surface p-5 transition-[border-color,box-shadow] duration-300 hover:border-primary/45 hover:shadow-card-hover md:p-7"
     >
       {/* Stacked on mobile so long school names keep room next to the logo. */}
-      <header className="relative flex flex-col gap-3 border-b border-muted pb-5 sm:flex-row sm:items-start sm:gap-4">
-        {/* Fixed-width box aligns all headings; the logo itself is sized to a
-            constant optical area (lib/logos.ts) since aspect ratios vary widely. */}
-        {logo && (
-          <div
-            className="flex shrink-0 items-center justify-start"
-            style={{ width: LOGO_BOX_WIDTH, height: LOGO_BOX_HEIGHT }}
-          >
-            <img
-              src={logo}
-              alt={logoAlt}
-              width={logoSize(logo).width}
-              height={logoSize(logo).height}
-              loading="lazy"
-              decoding="async"
-              className="object-contain"
-            />
-          </div>
-        )}
+      <header className="relative flex flex-col gap-4 border-b border-muted pb-5 sm:flex-row sm:items-center sm:gap-5">
+        {logo && <LogoTile src={logo} alt={logoAlt} />}
         <div className="min-w-0 flex-1">
           <h3 className="display-md text-xl md:text-2xl">{heading}</h3>
           <p className="mt-1.5 data-label">
@@ -225,6 +208,31 @@ export function TimelineCard({
       </header>
       <div className="relative space-y-6 pt-5">{children}</div>
     </motion.article>
+  )
+}
+
+/**
+ * Logo on a light tile in both themes: wordmarks are designed for white
+ * backgrounds, and a fixed tile aligns every heading regardless of logo shape.
+ */
+export function LogoTile({
+  src,
+  alt,
+  size = 'md',
+}: {
+  src: string
+  alt: string
+  size?: LogoTileSize
+}) {
+  const tile = LOGO_TILES[size]
+  const { width, height } = logoSize(src, size)
+  return (
+    <div
+      className="flex shrink-0 items-center justify-center rounded-xl border border-muted bg-logo-tile shadow-xs"
+      style={{ width: tile.width, height: tile.height }}
+    >
+      <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+    </div>
   )
 }
 

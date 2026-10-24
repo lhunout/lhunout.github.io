@@ -7,7 +7,7 @@ import { useCvPreview } from '@/components/CvPreview'
 import HeroOrbBackground from '@/components/HeroOrbBackground'
 import { LinkedinIcon } from '@/components/icons/BrandIcons'
 import { personalInfo, workExperience } from '@/data/cv-data'
-import { logoSize } from '@/lib/logos'
+import { logoRatio } from '@/lib/logos'
 import { EASE_OUT, SPRING_SMOOTH, SPRING_UI } from '@/lib/motion-presets'
 
 const container: Variants = {
@@ -56,12 +56,8 @@ function AnimatedWord({ text }: { text: string }) {
 const CRITEO = workExperience[0]
 
 function criteoLogoInline() {
-  const sized = logoSize(CRITEO.logo ?? '/logos/criteo.png')
-  const height = Math.min(24, sized.height)
-  return {
-    width: Math.round(sized.width * (height / sized.height)),
-    height,
-  }
+  const height = 18
+  return { width: Math.round(height * logoRatio(CRITEO.logo)), height }
 }
 
 export default function Hero() {
@@ -193,7 +189,7 @@ export default function Hero() {
               whileHover={reduceMotion ? undefined : { y: -3 }}
               whileTap={{ scale: 0.97 }}
               transition={SPRING_UI}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-muted bg-white/60 px-5 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary sm:flex-none"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-muted bg-surface/60 px-5 py-3 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary sm:flex-none"
             >
               <Mail className="size-4" aria-hidden />
               Get in touch

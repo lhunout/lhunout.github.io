@@ -9,12 +9,14 @@ import {
   FileText,
   Mail,
   MessageCircle,
+  Moon,
   Search,
 } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useLenis } from 'lenis/react'
 import { openChat } from '@/components/ChatBot'
 import { useCvPreview } from '@/components/CvPreview'
+import { toggleTheme } from '@/lib/theme'
 import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons'
 import { personalInfo } from '@/data/cv-data'
 
@@ -63,6 +65,13 @@ const COMMANDS: Command[] = [
     hint: 'Chat',
     Icon: MessageCircle,
     run: () => openChat(),
+  },
+  {
+    id: 'theme',
+    label: 'Toggle dark mode',
+    hint: 'Theme',
+    Icon: Moon,
+    run: toggleTheme,
   },
   {
     id: 'cv-preview',

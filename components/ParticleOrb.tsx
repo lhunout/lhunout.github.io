@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import { themeColor } from '@/lib/theme'
+import { themeColor, useTheme } from '@/lib/theme'
 
 /**
  * Hero background: a calligraphic joined "LH" monogram rendered as WebGL
@@ -126,7 +126,7 @@ function layoutForViewport(width: number, height: number, navBottomPx: number): 
   }
 }
 
-/** Theme tokens: near-black points with ~1 in 8 clay orange. */
+/** Theme tokens: ink-colored points with ~1 in 8 clay orange. */
 const RIBBON_PALETTE = [
   'foreground',
   'foreground',
@@ -396,9 +396,8 @@ function createRibbonParticles(count: number) {
     angle: new Float32Array(count),
     radial: new Float32Array(count),
   }
-  const colors = new Float32Array(count * 3)
+  const colorIndex = new Uint8Array(count)
   const phases = new Float32Array(count)
-  const palette = RIBBON_PALETTE.map((token) => new THREE.Color(themeColor(token)))
   const totalLength = STROKE_LENGTHS.reduce((a, b) => a + b, 0)
 
   for (let i = 0; i < count; i++) {
@@ -415,17 +414,26 @@ function createRibbonParticles(count: number) {
     // Mostly near the tube surface, a few inside.
     particles.radial[i] = 1 - Math.pow(random(), 3) * 0.35
     phases[i] = random() * Math.PI * 2
-    const color = palette[Math.floor(random() * palette.length)]
-    colors.set([color.r, color.g, color.b], i * 3)
+    colorIndex[i] = Math.floor(random() * RIBBON_PALETTE.length)
   }
 
   return {
     particles,
     positions: new Float32Array(count * 3),
-    colors,
+    colorIndex,
     phases,
     fades: new Float32Array(count).fill(1),
   }
+}
+
+function paletteColors(colorIndex: Uint8Array): Float32Array {
+  const palette = RIBBON_PALETTE.map((token) => new THREE.Color(themeColor(token)))
+  const colors = new Float32Array(colorIndex.length * 3)
+  colorIndex.forEach((index, i) => {
+    const { r, g, b } = palette[index]
+    colors.set([r, g, b], i * 3)
+  })
+  return colors
 }
 
 /** Flow speed along the stroke, in length units per second. */
@@ -438,10 +446,11 @@ function ParticleRibbon({ count }: { count: number }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null)
   const height = useThree((s) => s.size.height)
 
-  const { particles, positions, colors, phases, fades } = useMemo(
+  const { particles, positions, colorIndex, phases, fades } = useMemo(
     () => createRibbonParticles(count),
     [count],
   )
+  const colors = useMemo(() => paletteColors(colorIndex), [colorIndex])
 
   const uniforms = useMemo(
     () => ({
@@ -549,12 +558,13 @@ function CameraSetup({ cameraZ }: { cameraZ: number }) {
   return null
 }
 
-function Scene({ layout, count }: { layout: OrbLayout; count: number }) {
+function Scene({ layout, count, theme }: { layout: OrbLayout; count: number; theme: string }) {
   return (
     <>
       <CameraSetup cameraZ={layout.cameraZ} />
       <group position={layout.position} scale={layout.scale}>
-        <ParticleRibbon count={count} />
+        {/* Remounted on theme change to pick up the new token colors; the seed keeps the cloud identical. */}
+        <ParticleRibbon key={theme} count={count} />
       </group>
     </>
   )
@@ -565,6 +575,7 @@ function orbMask(centerXPercent: number, centerYPercent: number): string {
 }
 
 export default function ParticleOrb() {
+  const theme = useTheme()
   const [layout, setLayout] = useState<OrbLayout>(() =>
     layoutForViewport(
       typeof window !== 'undefined' ? window.innerWidth : 1280,
@@ -607,7 +618,7 @@ export default function ParticleOrb() {
         eventSource={typeof document !== 'undefined' ? document.body : undefined}
         eventPrefix="client"
       >
-        <Scene layout={layout} count={count} />
+        <Scene layout={layout} count={count} theme={theme} />
       </Canvas>
     </div>
   )

@@ -1,11 +1,19 @@
 @import 'tailwindcss';
 
+/* Dark mode is a `dark` class on <html>, set by lib/theme-script.ts. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Every color, font, size and shadow of the site lives here. Palette taken from
    anthropic.com's design tokens. `static` keeps every variable in the output so
    WebGL code can read them at runtime (see lib/theme.ts). */
 @theme static {
   --color-background: #faf9f5;
   --color-foreground: #141413;
+  --color-surface: #ffffff;
+  --color-surface-edge: color-mix(in oklab, white 80%, transparent);
+  --color-shadow: #141413;
+  /* Logos stay on a light tile in both themes. */
+  --color-logo-tile: #ffffff;
 
   --color-secondary: #f0eee6;
   --color-muted: #e8e6dc;
@@ -24,7 +32,7 @@
 
   --color-focus: #2c84db;
 
-  /* LH monogram particles: near-black inks plus a light clay accent. */
+  /* LH monogram particles: ink tones plus a light clay accent. */
   --color-ink-soft: #2b2a27;
   --color-ink-faint: #3d3c38;
   --color-primary-light: #d97757;
@@ -44,7 +52,7 @@
   --text-ui: 0.9375rem;
   --text-brand: 1.0625rem;
 
-  --shadow-panel: 0 24px 64px -24px color-mix(in oklab, var(--color-foreground) 35%, transparent);
+  --shadow-panel: 0 24px 64px -24px color-mix(in oklab, var(--color-shadow) 35%, transparent);
   --shadow-cta: 0 8px 24px -6px color-mix(in oklab, var(--color-primary) 45%, transparent);
   --shadow-card-hover:
     0 0 0 1px color-mix(in oklab, var(--color-primary) 18%, transparent),
@@ -52,6 +60,32 @@
 
   /* Content width shared by the nav and every section. */
   --container-site: 108rem;
+}
+
+/* Dark palette, after claude.ai's dark theme. Only colors change. */
+.dark {
+  color-scheme: dark;
+  --color-background: #1f1e1d;
+  --color-foreground: #f5f4ef;
+  --color-surface: #262624;
+  --color-surface-edge: color-mix(in oklab, white 5%, transparent);
+  --color-shadow: #000000;
+  --color-logo-tile: #f5f4ef;
+  --color-secondary: #2a2927;
+  --color-muted: #3a3936;
+  --color-muted-foreground: #a3a199;
+  --color-primary: #d97757;
+  --color-primary-foreground: #1f1e1d;
+  --color-accent: #e5936f;
+  --color-highlight: #5a3a2f;
+  --color-available: #94ab78;
+  --color-spine-hot: #d97757;
+  --color-spine-mid: #6f6d66;
+  --color-spine-cold: #3a3936;
+  --color-focus: #5ea2ea;
+  --color-ink-soft: #d9d6cc;
+  --color-ink-faint: #b4b1a7;
+  --color-primary-light: #e08a6b;
 }
 
 /* Side gutters for the nav and every section: 20 / 80 / 100px. */
@@ -110,7 +144,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in oklab, var(--color-primary) 25%, white);
+    background-color: color-mix(in oklab, var(--color-primary) 30%, var(--color-background));
     color: var(--color-foreground);
   }
 }
@@ -149,18 +183,18 @@
 }
 
 @utility card-surface {
-  background-color: #fff;
+  background-color: var(--color-surface);
   border: 1px solid var(--color-muted);
   box-shadow:
-    0 1px 2px color-mix(in oklab, var(--color-foreground) 4%, transparent),
-    inset 0 1px 0 0 color-mix(in oklab, white 80%, transparent);
+    0 1px 2px color-mix(in oklab, var(--color-shadow) 4%, transparent),
+    inset 0 1px 0 0 var(--color-surface-edge);
 }
 
 @utility glass {
   background-color: color-mix(in oklab, var(--color-background) 88%, transparent);
   backdrop-filter: blur(14px);
   border: 1px solid var(--color-muted);
-  box-shadow: 0 4px 24px color-mix(in oklab, var(--color-foreground) 6%, transparent);
+  box-shadow: 0 4px 24px color-mix(in oklab, var(--color-shadow) 6%, transparent);
 }
 
 @utility dot-grid {

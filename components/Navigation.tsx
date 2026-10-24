@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import {
   AnimatePresence,
   motion,
@@ -12,6 +12,7 @@ import {
 import { useLenis } from 'lenis/react'
 import { useCvPreview } from '@/components/CvPreview'
 import { EASE_OUT, SPRING_SMOOTH, SPRING_SNAPPY } from '@/lib/motion-presets'
+import { toggleTheme, useTheme } from '@/lib/theme'
 
 const NAV_ITEMS = [
   { name: 'Home', href: '#home' },
@@ -19,6 +20,22 @@ const NAV_ITEMS = [
   { name: 'Experience', href: '#experience' },
   { name: 'Education', href: '#education' },
 ]
+
+function ThemeToggle() {
+  const theme = useTheme()
+  const label = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={label}
+      title={label}
+      className="rounded-xl p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+    >
+      {theme === 'dark' ? <Sun className="size-4.5" /> : <Moon className="size-4.5" />}
+    </button>
+  )
+}
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -134,6 +151,7 @@ export default function Navigation() {
             )
           })}
 
+          <ThemeToggle />
           <button
             type="button"
             onClick={cv.open}
@@ -143,14 +161,17 @@ export default function Navigation() {
           </button>
         </div>
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="rounded-xl p-2 text-foreground transition-colors hover:bg-primary/10 sm:hidden"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="flex items-center gap-1 sm:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="rounded-xl p-2 text-foreground transition-colors hover:bg-primary/10"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </motion.nav>
 
       <AnimatePresence>

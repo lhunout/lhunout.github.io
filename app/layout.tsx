@@ -9,6 +9,7 @@ import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import SmoothScroll from '@/components/SmoothScroll'
 import { personalInfo } from '@/data/cv-data'
+import { THEME_SCRIPT } from '@/lib/theme-script'
 
 const SITE_URL = 'https://lhunout.github.io'
 const SHARE_IMAGE = '/photo.jpg'
@@ -73,11 +74,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // Font variables go on <html>: Tailwind's preflight resolves font-family
     // there, so variables scoped to <body> would fall back to system fonts.
+    // suppressHydrationWarning: THEME_SCRIPT adds the `dark` class before React hydrates.
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${archivo.variable} ${dmSans.variable} ${literata.variable} ${geistMono.variable}`}
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
