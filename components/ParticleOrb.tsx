@@ -588,9 +588,18 @@ export default function ParticleOrb() {
   )
 
   useEffect(() => {
-    const onResize = () =>
+    const fit = () =>
       setLayout(layoutForViewport(window.innerWidth, window.innerHeight, readNavBottomPx()))
-    onResize()
+    // Mobile toolbars resize the viewport height while scrolling; re-fitting on
+    // that would visibly zoom the monogram, so touch devices re-fit on width only.
+    const touch = matchMedia('(pointer: coarse)').matches
+    let lastWidth = window.innerWidth
+    const onResize = () => {
+      if (touch && window.innerWidth === lastWidth) return
+      lastWidth = window.innerWidth
+      fit()
+    }
+    fit()
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
